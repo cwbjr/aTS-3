@@ -20,6 +20,5 @@ const cohort = [{
     numberStudents: 29
 }];
 
-// module.exports = {
-//     cohort
-// };
+module.exports = {
+    cohorts
