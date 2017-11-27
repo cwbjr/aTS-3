@@ -21,5 +21,5 @@ const cohort = [{
 }];
 
 module.exports = {
-    cohorts
-}
+    cohort
+};
