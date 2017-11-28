@@ -22,3 +22,4 @@ const cohort = [{
 
 module.exports = {
     cohorts
+};

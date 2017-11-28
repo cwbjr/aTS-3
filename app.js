@@ -2,8 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 // Link data/cohorts
-const cohorts = require("data/cohorts");
-//
+const cohorts = require("./data/cohorts");
+
 
 app.use(cors());
 
