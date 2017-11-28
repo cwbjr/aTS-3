@@ -1,56 +1,32 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// Link data/cohorts
 const cohorts = require("./data/cohorts");
-
 
 app.use(cors());
 
-// const cohort = [{
-//     id: 1,
-//     cohortName: "17-01-WD-DP",
-//     cohortCode: "g100",
-//     numberStudents: 28
-// },{
-//     id: 2,
-//     cohortName: "17-01-DS-GT",
-//     cohortCode: "g105",
-//     numberStudents: 24
-// },{
-//     id: 3,
-//     cohortName: "17-02-WD-PX",
-//     cohortCode: "g109",
-//     numberStudents: 30
-// },{
-//     id: 4,
-//     cohortName: "17-03-WD-BD",
-//     cohortCode: "g110",
-//     numberStudents: 29
-// }];
+
 
 app.get("/", (req, res) => {
-    // res.json({cohort});
-    res.json({data: cohort});
+    res.json(cohorts);
 });
-
-function itemId(objectItems, id) {
-    for (var i = 0; i < objectItems.length; i++) {
-        if(objectItems[i].id == id) {
-            return objectItems[i];
-        }
-    }
-}
 
 app.get("/:id", (req, res) => {
-    var haveItem = itemId(cohort, req.params.id);
-    if(!haveItem) {
-        res.status = 404;
-        res.json({error: {message: "No record found!"}
-        });
+    for (var i = 0; i < cohorts.data.length; i++) {
+        if (cohorts.data[i].id == req.params.id) {
+            return res.json(cohorts.data[i]);
+        }
     }
-    res.json(haveItem);
+    if(!cohorts.data[i]) {
+            res.status = 404;
+            res.json({error: {message: "No record found!"}
+            });
+        }
+
+
 });
+
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log("TS-3 Version-1 on localhost:3000");
