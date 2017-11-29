@@ -17,12 +17,11 @@ app.get("/:id", (req, res) => {
             return res.json(cohorts.data[i]);
         }
     }
-    if(!cohorts.data[i]) {
-            res.status = 404;
-            res.json({error: {message: "No record found!"}
-            });
-        }
-    response.json({data: cohorts.data[i]});
+    if(!staff.staffers[i]) {
+        res.status(404);
+        res.json({error: {message: "No record found!"}
+        });
+    }
 });
 
 
