@@ -22,8 +22,7 @@ app.get("/:id", (req, res) => {
             res.json({error: {message: "No record found!"}
             });
         }
-
-
+    response.json({data: cohorts.data[i]});
 });
 
 
