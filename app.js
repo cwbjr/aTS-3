@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.get("/:id", (req, res) => {
     for (var i = 0; i < cohorts.data.length; i++) {
         if (cohorts.data[i].id == req.params.id) {
-            return res.json(cohorts.data[i]);
+            return res.json({data: cohorts.data[i]});
         }
     }
     if(!cohorts.data[i]) {
